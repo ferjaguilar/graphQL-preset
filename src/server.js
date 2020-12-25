@@ -7,7 +7,11 @@ import db from './database';
 require('dotenv').config({ path: 'keys.env' });
 
 const isDev = process.env.NODE_ENV === 'production';
-const { schema, resolver } = glue('./src/graphql');
+let graphqlPath = './src/graphql';
+if (isDev) {
+  graphqlPath = './dist/graphql';
+}
+const { schema, resolver } = glue(graphqlPath);
 const app = express();
 
 const corsOptions = {
