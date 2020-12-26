@@ -8,7 +8,9 @@
     "build": "babel src --out-dir dist && npm run graphql",
     "start": "NODE_ENV=production node dist/server.js",
     "graphql": "rsync -r --include '*/' --include '*.gql' --exclude='*' --prune-empty-dirs 'src/' 'dist/'",
-    "clean": "rm -rf node_modules"
+    "clean": "rm -rf node_modules",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "author": "Fernando Jose Aguilar Rivas",
   "license": "ISC",
